@@ -1,0 +1,125 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax. -->
+
+<!-- Top Navbar-->
+<div class="navbar">
+    <div class="navbar-inner">
+        <!--div class="left">
+            <a href="index.html" class="link">
+                <i class="icon icon-back"></i>
+                <span>На главную</span>
+            </a>
+        </div-->
+        <div class="center sliding">Резервное копирование</div>
+    </div>
+</div>
+
+<div class="pages">
+    <div data-page="backup" class="page">
+        <div class="page-content">
+            <!--div class="content-block-title">Резервное копирование</div-->
+            <div id="registered-0" class="content-block" hidden="hidden">
+                <form id="registered-0" class="list-block">
+
+                    <div class="card">
+                            <div class="card-header">Регистрация, шаг 1</div>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <p>Зарегистрируйтесь на сервере хранения для резервирования и синхронизации данных между вашими устройствами. 
+                                        Для этого укажите вашу электронную почту и получите код регистрации. 
+                                    </p>
+                                    <p>
+                                        Если ваш email уже есть в базе, код регистрации будет выслан вам повторно.
+                                    </p>
+                                    <p>
+                                        <input id="mailTo" name="mailTo" type="email" placeholder="адрес электронной почты" pattern="/.+@.+\..+/i" required>
+                                    </p>
+                                    <p><a href="#" class="button registered-0">Запросить код регистрации</a></p>  
+                                </div>
+                            </div>
+                    </div>                    
+                    <div class="card">
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                            <p><a href="#" class="registered-0-1">Перейти к вводу кода регистрации (Шаг 2)</a></p>
+                                </div>
+                            </div>
+                    </div>                    
+                </form>
+            </div>            
+
+            <div id="registered-1" class="content-block" hidden="hidden">
+                <form id="registeredForm1" name="registeredForm1" class="list-block">
+
+                     <div class="card">
+                            <div class="card-header">Регистрация, шаг 2</div>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <p> Введите ваш Email
+                                    </p>
+                                    <p> <input id="mailTo" name="mailTo" type="email" placeholder="адрес электронной почты" pattern="/.+@.+\..+/i" required>
+                                    </p>
+                                    <p> Введите ваш код регистрации
+                                    </p>
+                                    <p> <input id="pin" name="pin" type="number" placeholder="код регистрации" required pattern="^[0-9]+$">
+                                    </p>                                    
+                                    
+                                    <p><a href="#" class="button registered-1">Подтвердить</a></p>
+                                    
+                                </div>
+                            </div>
+                    </div>                                      
+                    <div class="card">
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                            <p><a href="#" class="registered-1-back">Перейти к регистрации Email (Шаг1)</a></p>
+                                </div>
+                            </div>
+                    </div>         
+
+                </form>
+            </div>             
+            
+            <div id="backup-1" class="content-block" hidden="hidden">            
+
+                    <div class="card">
+                        <form id="backupForm1" name="backupForm1" >
+                            <div class="card-header"><b>Настройка резервного копирования</b></div>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <label class="label-switch no-fastclick" >
+                                        <input type="checkbox" id="checkBackup" class="backup-1-ok">
+                                        <div class="checkbox"></div>
+                                    </label>
+                                    Включить резервное копирование данных. Данные будут передаваться на сервер после каждого изменения в практике.
+                                </div>
+                            </div>
+                      </form>  
+                    </div>
+                
+                     <div class="card">
+                        <div class="card-header"><b>Настройка аккаунта</b></div>
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                        <p>Ваш аккаунт для подключения к серверу резервирования:</p> 
+                                        <p><div id="account">...</div></p>
+                                        <!--p>Изменить аккаунт для подключения к серверу резервирования</p-->
+                                        <p><a href="#" class="button backup-2-ok">Изменить аккаунт</a></p>                            
+                            </div>
+                        </div>
+                    </div>
+                     <div class="card">
+                        <div class="card-header"><b>Восстановление данных</b></div>
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                        <p>Вы можете загрузить ранее сохраненные вами данные с сервера резервирования. 
+                                        <p>Внимание! Данные о практиках на вашем устройстве БУДУТ УДАЛЕНЫ, а затем будут записаны данные с сервера резервирования!</p>
+                                        <p><a href="#" class="button backup-3-getsrv">Загрузить</a></p>                          
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+            
+        </div>
+    </div>
+</div>

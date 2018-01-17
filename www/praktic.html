@@ -1,0 +1,114 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax. -->
+
+<!-- Top Navbar-->
+<div class="navbar">
+    <div class="navbar-inner">  
+        <div class="center sliding" id="prakticName">Название практики</div>
+        <div class="right">
+            <a href="#" data-popover=".popover-links-praktic-menu" class="link open-popover"><i class="icon icon-bars"></i></a>
+        </div>        
+    </div>
+</div>
+
+<div class="pages">
+    <div data-page="praktic" class="page">
+        <div class="page-content">
+            <div class="content-block">
+                
+                    <div class="card">
+                        <div class="card-content"> 
+                            <div class="list-block">
+                                <div class="item-content">
+                                    
+                                    <div class="item-inner">
+                                        <span>Выполнено:</span>
+                                        <span id="praktic-result" style="font-size:100%;"> 0 </span>
+                                    </div>
+                                </div>    
+                                <div class="item-content">                                
+                                    <div class="item-inner">
+                                        <span>Осталось выполнить:</span>
+                                        <span id="praktic-up" style="font-size:100%;"> 0 </span>
+                                    </div>                                      
+                                </div>                                  
+                            </div>   
+                        </div>  
+                    </div>
+                    
+                    <div class="card">                        
+                        <!--div class="card-header" id="card-praktic"><b>Добавить сессию</b></div-->
+                        <div class="card-content">   
+                            <div class="list-block">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        Сделано за сессию:
+                                    </div> 
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <div id="session-result" style="font-size: 300%; text-align: center">
+                                              0
+                                            </div>
+                                        </div>    
+                                    </div>                        
+                                </div>                              
+                            </div>                    
+
+                            <div class="list-block">
+                                <div class="item-content">
+                                    <div class="item-inner" id="cirleShow">
+                                        ... 
+                                    </div> 
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <a href="#" class="button -button-big button-fill color-red dec-result"><i class="f7-icons" style="vertical-align:middle">delete_round</i></a>
+                                        </div> 
+                                    </div> 
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <a href="#" class="button -button-big button-fill color-green inc-result"><i class="f7-icons" style="vertical-align:middle">add_round</i></a>
+                                        </div>
+                                    </div>                                 
+                                </div>                              
+                            </div>
+
+                            <div class="list-block">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        Добавить повторения: 
+                                    </div>                            
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <form id="dataPraktic" class="list-block">
+                                                <input name="dpp" tabindex="-1" class="dpp" id="dpp"  
+                                                        type="number" placeholder="0" pattern="^[0-9]+$">
+                                            </form>
+                                        </div>    
+                                    </div>                                                   
+                                </div>                              
+                            </div>
+                        </div>  
+
+                        <div class="card-content">                                      
+                            <div class="card-content-inner">
+                                <a href="#" class="button save-data-praktic">Сохранить сессию</a>  
+                            </div>  
+                        </div>
+                    </div>  
+                
+                    <div class="card">
+                        <div class="card-header" id="card-praktic"><b>Статистика по практике</b></div>
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                <div class="ct-chart-day ct-square" id="ct-chart-day"> </div>
+                            </div>
+                           
+                            <div class="card-content-inner">
+                                <div class="list-block-label" id="circle-length"> </div>
+                            </div>  
+
+                        </div>
+                    </div>                      
+            </div>           
+        </div>
+    </div>
+</div>

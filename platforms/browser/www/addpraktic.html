@@ -1,0 +1,87 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax. -->
+
+<!-- Top Navbar-->
+<div class="navbar">
+    <div class="navbar-inner">
+        <!--div class="left">
+            <a href="index.html" class="link">
+                <i class="icon icon-back"></i>
+                <span>На главную</span>
+            </a>
+        </div-->
+        <div class="center sliding">Добавить практику</div>
+        <!--div class="right">
+            <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+        </div-->
+    </div>
+</div>
+
+<div class="pages">
+    <div data-page="addPraktic" class="page">
+        <div class="page-content">
+            <div class="content-block">
+                <form id="addPraktic" class="list-block">
+                    <div class="card">
+                        <!--div class="card-header" id="card-praktic">Добавить практику</div-->
+                        <div class="card-content">
+                            <div class="list-block">
+                              <ul>
+                               <li>
+                                  <div class="item-content">
+                                    <div class="item-inner">
+                                        Чтобы создать новую практику, пожалуйста, заполните все поля формы.
+                                    </div>
+                                  </div>
+                                </li>                                  
+                               <li>
+                                  <div class="item-content">
+                                    <div class="item-inner">
+                                        Название практики
+                                    </div>
+                                    <div class="item-inner">
+                                      <div class="item-input">
+                                        <input id="prakticName" name="prakticName" type="text" placeholder="Алмазный ум" required>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>   
+                               <li>
+                                  <div class="item-content">
+                                    <div class="item-inner">
+                                        Цель (всего повторений практики)
+                                    </div>                                      
+                                    <div class="item-inner">
+                                      <div class="item-input">
+                                        <input id="prakticLength" name="prakticLength" type="number" placeholder="111111" required pattern="^[0-9]+$">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                               <li>
+                                  <div class="item-content">
+                                    <div class="item-inner">
+                                        Повторений в одном круге
+                                    </div> 
+                                    <div class="item-inner">
+
+                                      <div class="item-input">
+                                        <input id="prakticCircleLength" name="prakticCircleLength" type="number" placeholder="108" required pattern="^[0-9]+$">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>                                  
+                            </ul>                    
+                          </div>                                      
+                        </div>
+                        <div class="card-content">                                      
+                            <div class="card-content-inner">
+                                <a href="#" class="button save-data-addPraktic">Сохранить</a>  
+                            </div>  
+                        </div>
+                    </div>                 
+              </form>  
+
+            </div>
+        </div>
+    </div>
+</div>

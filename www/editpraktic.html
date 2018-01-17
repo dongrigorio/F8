@@ -1,0 +1,99 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax. -->
+
+<!-- Top Navbar-->
+<div class="navbar">
+    <div class="navbar-inner">
+        <!--div class="left">
+            <a href="praktic.html" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Отмена</span>
+            </a>
+        </div-->
+        <div class="center sliding">Изменение настроек</div>
+    </div>
+</div>
+
+<div class="pages">
+    <div data-page="editPraktic" class="page">
+        <div class="page-content">
+            <div class="content-block">
+                <form name="editPraktic" id="editPraktic" class="list-block">
+                    
+                    <div class="card">
+                        <div class="card-header" id="card-praktic">Изменение настроек практики</div>
+                        <div class="card-content"> 
+                            <div class="card-content-inner">
+                                Изменение настроек не приведет изменению уже записанных данных о выполнении практики
+                             </div>      
+                        </div>    
+                        <div class="card-content">
+                            
+                            <div class="list-block">
+                              <ul>
+                               <li>
+                                  <div class="item-content">
+                                    <div class="item-inner">
+                                        Название практики
+                                    </div>    
+                                    <div class="item-inner">
+                                      <div class="item-input">
+                                        <input id="prakticName" name="prakticName" value="" type="text" placeholder="Название практики">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>   
+                               <li>
+                                  <div class="item-content">
+                                    <div class="item-inner">
+                                        Всего повторений
+                                    </div>  
+                                    <div class="item-inner">
+                                      <div class="item-input">
+                                        <input id="prakticLength" name="prakticLength" type="number" placeholder="Количество повторений" required pattern="^[0-9]+$">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                               <li>
+                                  <div class="item-content">
+                                    <div class="item-inner">
+                                        Повторений в одном круге
+                                    </div>                                         
+                                    <div class="item-inner">
+                                      <div class="item-input">
+                                        <input id="prakticCircleLength" name="prakticCircleLength" type="number" placeholder="Повторений в одном круге" required pattern="^[0-9]+$">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>                                  
+                            </ul>                    
+                          </div>                                      
+                        </div>
+                        <div class="card-content">                                      
+                            <div class="card-content-inner">
+                                <a href="praktic.html" class="button ---alert-text-title save-data-editPraktic">Сохранить</a>
+                            </div>  
+                            <!--div class="card-content-inner">
+                                <a href="#" class="button cancel-data">Отменить</a>                              
+                            </div-->                             
+                        </div>
+                    </div> 
+                </form>      
+                
+                 <div class="card">
+                    <div class="card-header" id="card-praktic">Удаление практики</div>
+                    <div class="card-content">
+                        <div class="card-content-inner">
+                            Вы можете удалить практику, при этом будет удалена вся связанная с ней информация с устройства и сервера. Отменить это действие невозможно!
+                        </div>
+                    </div>
+                    <div class="card-content">                                      
+                        <div class="card-content-inner">
+                            <a href="#" class="button ---alert-text-title delete-praktic">Удалить практику</a>  
+                        </div>  
+                    </div>
+                </div>                       
+            </div>            
+        </div>
+    </div>
+</div>

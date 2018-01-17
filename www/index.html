@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://geo-format.ru/mp.html https://geo-format.ru/mp.html  data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+         <meta http-equiv="Content-Security-Policy" content="default-src * gap: file:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+    -->
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://geo-format.ru/mp.html https://geo-format.ru/mp.html  data: gap: file: 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
+    
+    
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+      <style>
+       .semilayer {
+        opacity: 0.97; /* Значение прозрачности */
+       }
+       .nosemilayer {
+        opacity: 1; /* Значение прозрачности */
+       }
+        input::-webkit-input-placeholder {
+            color: #E4E4E4; /* Цвет подсказывающего текста */  
+            font-style: italic;
+            background: #FBFEF7;
+        }     
+           
+      </style>
+    
+    <!-- Your app title -->
+    <title>Моя Практика</title>
+
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="chartist/chartist.min.css">
+    <link rel="stylesheet" href="css/framework7-icons.css">
+  
+</head>
+
+<body>
+
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p><a href="addpraktic.html" class="button -button-big close-panel active">Добавить практику</a></p>
+            <p><a href="backup.html" class="button -button-big close-panel active">Резервное копирование</a></p>
+            <p><a href="about.html" class="button -button-big close-panel active">О программе</a></p>
+        </div>
+    </div>
+
+    <!-- Views -->
+    <div class="views">
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                    <div class="center">Моя практика</div>
+                    <div class="right">
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-fixed toolbar-fixed" >
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page" style="background-image:url(./img/logo.png); background-position:center; background-repeat: no-repeat; background-size: contain;">
+                    <!-- Scrollable page content -->
+                    <div id="page-content" class="page-content" >
+                       <!-- Здесь отображение страницы --> 
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+  <div class="popover popover-links-praktic-menu">
+    <div class="popover-angle"></div>
+    <div class="popover-inner">
+      <div class="list-block">
+        <ul>
+          <li><a href="#" class="list-button item-link delete-last-data">Удалить последнюю сессию</a></li> 
+          <li><a href="editpraktic.html" class="list-button item-link edit-data">Изменить настройки практики</a></li> 
+        </ul>
+      </div>
+    </div>
+  </div>    
+    
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="chartist/chartist.min.js"></script>  
+    <script type="text/javascript" src="js/my-app.js"></script>
+
+    
+    
+    
+</body>
+
+</html>
