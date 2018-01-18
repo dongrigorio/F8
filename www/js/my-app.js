@@ -112,11 +112,13 @@ function getBackup(){
 
                         if( (resp3[0] == "oper=7") && (resp3[1] == "a=" + settings.email) && (resp3[2] == "id=" + key) && (resp3[4] == "status=datasync")  ) {
                             //console.log("Данные об изменении практики на сервере БОЛЕЕ СВЕЖИЕ, и отличаются от локальной базы"); 
-                            var qq = JSON.parse(b64_to_utf8(resp3[3].substr(5)));
-                            myApp.alert("Cинхронизация с сервером выполнена успешно!","Backup");
+                            var qq = JSON.parse(b64_to_utf8(resp3[3].substr(5)));                        
                             prakticData.prakticPieces = qq.prakticPieces;
                             prakticData.prakticSum = qq.prakticSum;
                             localStorage.setItem(key, JSON.stringify(prakticData));
+                            myApp.alert("Cинхронизация с сервером выполнена успешно!","Backup", function(){
+                                mainView.router.reloadPage('index.html'); 
+                            });
                         } 
                     }
                 })( key );
