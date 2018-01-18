@@ -11,10 +11,10 @@
 </div>
 
 <div class="pages">
-    <div data-page="praktic" class="page">
+    <div data-page="praktic" data-name="praktic" class="page">
         <div class="page-content">
             <div class="content-block">
-                
+                <form id="dataPraktic" class="list-block">
                     <div class="card">
                         <div class="card-content"> 
                             <div class="list-block">
@@ -78,15 +78,17 @@
                                     </div>                            
                                     <div class="item-inner">
                                         <div class="item-input">
-                                            <form id="dataPraktic" class="list-block">
-                                                <input name="dpp" tabindex="-1" class="dpp" id="dpp"  
-                                                        type="number" placeholder="0" pattern="^[0-9]+$">
-                                            </form>
+
+                                                <input id="dpp" name="dpp" type="number" tabindex="-1" class="dpp"  
+                                                         placeholder="0" pattern="^[0-9]+$">
+                                                
                                         </div>    
                                     </div>                                                   
                                 </div>                              
                             </div>
+
                         </div>  
+
 
                         <div class="card-content">                                      
                             <div class="card-content-inner">
@@ -104,10 +106,13 @@
                            
                             <div class="card-content-inner">
                                 <div class="list-block-label" id="circle-length"> </div>
+                                <input type="text">
                             </div>  
 
                         </div>
-                    </div>                      
+                    </div> 
+
+                </form> 
             </div>           
         </div>
     </div>

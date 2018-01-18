@@ -132,7 +132,7 @@ function getBackup(){
 }
 
 myApp.onPageInit('*', function (page) {     
-    console.log(page.name + ' initialized'); 
+    //console.log(page.name + ' initialized'); 
     console.log("--->" + myApp.getCurrentView().activePage.name);
 });
 
@@ -166,16 +166,9 @@ $$(document).on('deviceready', function () {
     document.addEventListener("backbutton", onBackKeyDown, false);
     console.log("Device is ready!");
     getSettings();
-    //myApp.alert("getSettings","getSettings");
-    
     getBackup();
-   // myApp.alert("getBackup","getBackup");
-    
-    //location.href="index.html";
-    //mainView.router.load({url:'index.html'});
     mainView.router.reloadPage('index.html');     //эквивалент  = mainView.router.refreshPage();
-    //myApp.alert("reloadPage","reloadPage");
-    //mainView.router.refreshPage();
+
 });
 
 var indexPage = myApp.onPageInit('index', function (page) {
@@ -258,7 +251,6 @@ var indexPage = myApp.onPageInit('index', function (page) {
             cBlock.appendChild(cBlock1);       
 
             document.getElementById("page-content").appendChild(cBlock);  
-
         }
     }
     
@@ -297,10 +289,12 @@ var indexPage = myApp.onPageInit('index', function (page) {
     
 });
 
+
 myApp.onPageInit('addPraktic', function (page) {
-    //практикИд = текущее время
+    
+   //практикИд = текущее время
     prakticId = +new Date();
-                                                                                             
+                                                                                        
     $$('.save-data-addPraktic').on('click', function () {
         
         var formData = myApp.formToJSON('#addPraktic');
@@ -312,13 +306,17 @@ myApp.onPageInit('addPraktic', function (page) {
                 formData["prakticSum"] = "";
                 formData["prakticPieces"] = ""; 
                 localStorage.setItem(prakticId, JSON.stringify(formData));
-                myApp.alert('Добавлена практика "' + formData["prakticName"] + '"' ,"addPraktic");
-                
-                location.href="index.html";                
+                myApp.alert('Добавлена практика "' + formData["prakticName"] + '"' ,"", 
+                            function(){
+                                mainView.router.loadPage('index.html');  
+                            }   
+                );
             }
-
     });
+   
 });
+
+
 
 var backupPage = myApp.onPageInit('backup', function (page) {
 
@@ -553,17 +551,13 @@ var backupPage = myApp.onPageInit('backup', function (page) {
                         //console.log(data);
                         localStorage.setItem(key, data);
                     }
-                    myApp.alert("Данные с сервера загружены","Backup");
-
+                    myApp.alert("Данные с сервера загружены","Backup", function(){
+                        mainView.router.loadPage('index.html');
+                    });
                 } else {
-                    myApp.alert("Ошибка получения данных","Backup");
-                    //mainView.router.refreshPage();                    
+                    myApp.alert("Ошибка получения данных","Backup");                   
                 }
- 
-            } 
-            mainView.router.refreshPage();
-            //location.href="index.html";         
-             
+            }  
         },function () {
             mainView.router.refreshPage();
         });       
@@ -644,10 +638,11 @@ var pageInitPraktic = myApp.onPageInit('praktic', function (page) {
     document.getElementById("cirleShow").innerHTML = "Добавить круги (" + prakticData["prakticCircleLength"] + "):";
     
     
-    $$('.dpp').on('keyup keydown', function () { //keyup keydown change dataPrakticPieces
+    $$('.dpp').on('keyup', function () { //keyup keydown change dataPrakticPieces
         //console.log("vent.keyCode= " + event.keyCode);
     
         formData = myApp.formToJSON('#dataPraktic'); 
+        
         var resInput = +formData['dpp'];
         sumSession = +sumSession - +prevInput + +resInput;
 
@@ -842,30 +837,30 @@ myApp.onPageInit('editPraktic', function (page) {
     
     $$('.delete-praktic').on('click', function () {
              myApp.confirm("Удалить практику " + prakticData["prakticName"] + "?","", function () {
-                 localStorage.removeItem(prakticId);
-                        var webUri = "https://geo-format.ru/mp.html";
-                        var request = "a="  + encodeURIComponent(settings.email)
-                                    + "&pin=" + encodeURIComponent(settings.pin)            
-                                    + "&oper=" + encodeURIComponent("del") 
-                                    + "&id=" + encodeURIComponent(prakticId)
-                                    + "&rnd=" + encodeURIComponent( Math.random() );
+                localStorage.removeItem(prakticId);
+                var webUri = "https://geo-format.ru/mp.html";
+                var request = "a="  + encodeURIComponent(settings.email)
+                            + "&pin=" + encodeURIComponent(settings.pin)            
+                            + "&oper=" + encodeURIComponent("del") 
+                            + "&id=" + encodeURIComponent(prakticId)
+                            + "&rnd=" + encodeURIComponent( Math.random() );
 
-                        // open WEB      
-                        var x = new XMLHttpRequest();
-                        x.open("POST", webUri, true);
-                        x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                        x.send(request);
-                        x.onload = function (){
-                            var resp1 = x.responseText.indexOf("<response>",0);
-                            var resp2 = x.responseText.indexOf("</response>",resp1+1);
-                            var resp3 = x.responseText.substr(resp1+10,resp2-resp1-10).split("&");
+                // open WEB      
+                var x = new XMLHttpRequest();
+                x.open("POST", webUri, true);
+                x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                x.send(request);
+                x.onload = function (){
+                    var resp1 = x.responseText.indexOf("<response>",0);
+                    var resp2 = x.responseText.indexOf("</response>",resp1+1);
+                    var resp3 = x.responseText.substr(resp1+10,resp2-resp1-10).split("&");
 
-                            if( (resp3[0] == "oper=del") && (resp3[1] == "a=" + settings.email) && (resp3[2] == "status=prakticDeleted") ) {
-                                myApp.alert("Практика удалена!" ,"Backup");
-                            } 
-                        }                 
-
-                 location.href="index.html";
+                    if( (resp3[0] == "oper=del") && (resp3[1] == "a=" + settings.email) && (resp3[2] == "status=prakticDeleted") ) {
+                        myApp.alert("Практика удалена!" ,"Backup");
+                    } 
+                }                 
+                mainView.router.loadPage('index.html');
+                 //location.href="index.html";
             });
     });
    
